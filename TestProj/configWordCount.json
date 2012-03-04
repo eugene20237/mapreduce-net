@@ -1,0 +1,16 @@
+﻿[
+{
+	"MapName":"MapReduceSamples.WordCountMap", 
+	"ReduceName":"MapReduceSamples.WordCountReduce",
+	"Input":
+		{
+			"Location":"big.txt", 
+			"PluginType" : "MapReduce.NET.Input.TextfileLineInput"
+		},
+	"Output":
+		{
+			"Location":"buffer2.db3", 
+			"PluginType" : "MapReduce.NET.Output.SQLiteOutput"
+		}
+}
+]
