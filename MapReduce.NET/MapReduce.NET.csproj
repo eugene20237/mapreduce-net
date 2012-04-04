@@ -79,7 +79,6 @@
     <Compile Include="Serializer\ProtobufSerializer.cs" />
     <Compile Include="DelegatesStatus.cs" />
     <Compile Include="Service\ServiceReference.cs" />
-    <Compile Include="Service\ServiceTest.cs" />
     <Compile Include="Service\StatusMessage.cs" />
     <Compile Include="TypeFinder.cs" />
   </ItemGroup>

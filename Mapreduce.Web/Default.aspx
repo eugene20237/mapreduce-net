@@ -8,11 +8,11 @@
         Welcome
     </h2>
     <p>
-        Start processing and download SQLite result <a href='mapreduce.aspx?Command=getresult&configname=configshakespeare.json'>
+        Start processing and download SQLite result <a href='mapreduce.aspx?Command=getresult&configname=configInvertedIndex.json'>
             [Download]</a>
     </p>
     <p>
-        Start processing without download <a href='mapreduce.aspx?Command=start&configname=configshakespeare.json'>
+        Start processing without download <a href='mapreduce.aspx?Command=start&configname=configInvertedIndex.json'>
             [Start]</a>
     </p>
 

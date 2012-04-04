@@ -1,6 +1,0 @@
-BEGIN TRANSACTION;
-CREATE TABLE Map (Key TEXT, Value TEXT);
-CREATE TABLE Reduce (Key TEXT, Value TEXT);
-CREATE INDEX ix_MapKey ON Map(Key ASC);
-CREATE INDEX ix_ReduceKey ON Reduce(Key ASC);
-COMMIT;

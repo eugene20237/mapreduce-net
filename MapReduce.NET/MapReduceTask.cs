@@ -163,11 +163,11 @@ namespace MapReduce.NET
                 throw new ArgumentException("Empty data source");
             }
 
-            IEnumerable inputEnumerator = input is IDictionary ? ((IDictionary)input).Keys : input;
+            bool inputDict = input is IDictionary;
 
             uint counter = 0;
 
-            foreach (var item in inputEnumerator)
+            foreach (var item in input)
             {
                 while (PartialSaveInProgress) // after a short save we continue
                     Thread.Sleep(100);
@@ -178,15 +178,16 @@ namespace MapReduce.NET
                 MK key;
                 MV val;
 
-                if (!(input is IDictionary)) // flat input, no keys
+                if (!inputDict) // flat input, no keys
                 {
                     key = null;
                     val = (MV)item;
                 }
                 else
                 {
-                    key = (MK)item;
-                    val = ((IDictionary<MK, MV>)input)[(MK)item];
+                    var dictItem = (KeyValuePair<MK, MV>)item;
+                    key = dictItem.Key;
+                    val = dictItem.Value;
                 }
 
                 if (inputPlugin != null)
@@ -245,23 +246,25 @@ namespace MapReduce.NET
             if (from.GetType() != ReduceResult.GetType())
                 return;
 
-            foreach (var key in from.Keys)
+            IDictionary<K, NV> fromtyped = ((IDictionary<K, NV>)from);
+
+            foreach (var kv in fromtyped)
             {
-                if (from[key] is IEnumerable)
+                if (kv.Value is IEnumerable)
                 {
-                    foreach (var subitem in from[key] as IEnumerable)
+                    foreach (var subitem in kv.Value as IEnumerable)
                     {
-                        int pos = ((CustomDictionary<K, NV>)ReduceResult).InitOrGetPosition((K)key);
+                        int pos = ((CustomDictionary<K, NV>)ReduceResult).InitOrGetPosition((K)kv.Key);
                         NV value = ((CustomDictionary<K, NV>)ReduceResult).GetAtPosition(pos);
-                        NV newvalue = reducer.Reduce((K)key, (V)subitem, value);
+                        NV newvalue = reducer.Reduce((K)kv.Key, (V)subitem, value);
                         ((CustomDictionary<K, NV>)ReduceResult).StoreAtPosition(pos, newvalue);
                     }
                 }
                 else
                 {
-                    int pos = ((CustomDictionary<K, NV>)ReduceResult).InitOrGetPosition((K)key);
+                    int pos = ((CustomDictionary<K, NV>)ReduceResult).InitOrGetPosition((K)kv.Key);
                     NV value = ((CustomDictionary<K, NV>)ReduceResult).GetAtPosition(pos);
-                    NV newvalue = reducer.Reduce((K)key, (V)from[key], value);
+                    NV newvalue = reducer.Reduce(kv.Key, (V)(object)kv.Value, value);
                     ((CustomDictionary<K, NV>)ReduceResult).StoreAtPosition(pos, newvalue);
                 }
             }

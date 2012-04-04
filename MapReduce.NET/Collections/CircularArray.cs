@@ -12,8 +12,8 @@ namespace MapReduce.NET.Collections
         const uint buffSize = 10 * 1000;
         K[] buffKey = new K[buffSize];
         V[] buffValue = new V[buffSize];
-        uint ptrWrite;
-        uint ptrRead;
+        volatile uint ptrWrite;
+        volatile uint ptrRead;
 
         public uint Length { get { return buffSize; } }
 

@@ -4,12 +4,8 @@
 	"ReduceName":"MapReduceSamples.GrepReducer",
 	"Input":
 		{
-			"Location":"..\\..\\Shakespeare\\*.txt", 
-			"PluginType" : "MapReduce.NET.Input.TextfileLineInput",
-			"Parameters":
-			{
-				"ArchiveAttributeOnly" : "true"
-			}
+			"Location":"Shakespeare\\*.txt", 
+			"PluginType" : "MapReduce.NET.Input.TextfileLineInput"
 		},
 	"Output":
 		{

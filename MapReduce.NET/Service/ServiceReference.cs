@@ -123,7 +123,8 @@ namespace MapReduce.NET.Service
 
         public IDictionary<K, V> GetMemoryResultDictionary(bool purgeData)
         {
-             var result = base.Channel.GetMemoryResult(purgeData);
+            var result = base.Channel.GetMemoryResult(purgeData);
+
             byte[] resultByteArr = Convert.FromBase64String(result);
 
             MemoryStream ms = new MemoryStream(resultByteArr);

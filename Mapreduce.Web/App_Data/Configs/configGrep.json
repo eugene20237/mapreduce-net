@@ -5,11 +5,7 @@
 	"Input":
 		{
 			"Location":"Shakespeare\\*.txt", 
-			"PluginType" : "MapReduce.NET.Input.TextfileLineInput",
-			"Parameters":
-			{
-				"ArchiveAttributeOnly" : "true"
-			}
+			"PluginType" : "MapReduce.NET.Input.TextfileLineInput"
 		},
 	"Output":
 		{

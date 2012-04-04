@@ -173,7 +173,7 @@
     <None Include="App_Data\Configs\configGrep.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="App_Data\Configs\configShakespeare.json">
+    <None Include="App_Data\Configs\configInvertedIndex.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

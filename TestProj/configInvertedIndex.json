@@ -9,7 +9,7 @@
 		},
 	"Output":
 		{
-			"Location":"bufferBinary.db3", 
+			"Location":"invertedIndex.db3", 
 			"PluginType" : "MapReduce.NET.Output.SQLiteOutput"
 		}
 }

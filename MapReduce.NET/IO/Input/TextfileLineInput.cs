@@ -16,7 +16,7 @@ namespace MapReduce.NET.Input
 
         public DateTime? CreationDateAtLeast  { get; set; }
         public DateTime? CreationDateAtMost { get; set; }
-        public bool ArchiveAttributeOnly { get; set; }
+        //public bool ArchiveAttributeOnly { get; set; }
 
 
         public TextfileLineInput(string path) : base(path) { }
@@ -25,6 +25,10 @@ namespace MapReduce.NET.Input
         {
             string dir = Path.GetDirectoryName(Location.ToString());
             string pattern = Path.GetFileName(Location.ToString());
+
+            if (string.IsNullOrEmpty(dir))
+                dir = ".";
+
             files = Directory.GetFiles(dir, pattern);
         }
 
