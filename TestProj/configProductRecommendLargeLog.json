@@ -16,7 +16,7 @@
 	
 	"Output":
 		{
-			"Location":"bufferBinary.db3", 
+			"Location":"productRecommendation.db3", 
 			"PluginType" : "MapReduce.NET.Output.SQLiteOutput"
 		},
 	"Parameters" : 

@@ -14,9 +14,9 @@ using System.IO;
 using System.Reflection;
 using System.IO.Compression;
 using MapReduce.NET.Serializer;
-using Mapreduce.NET.Service;
+using MapReduce.NET.Service;
 
-namespace Mapreduce.Web
+namespace MapReduce.Web
 {
     [ServiceContract]
     public interface IMapReduceService

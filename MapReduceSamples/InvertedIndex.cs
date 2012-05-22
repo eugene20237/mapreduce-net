@@ -33,14 +33,18 @@ namespace MapReduceSamples
                 }
             }
 
-            string[] cleanarr = value.ToLower().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] cleanarr = value.ToLower().Split(new char[] { ' ' });
+
+            int pos = 0;
 
             foreach (var item in cleanarr)
             {
-                if (IsStopWord(item))
-                    continue;
+                if (item != "" && !IsStopWord(item))
+                {
+                    result.Push(item, new Position { BytePosition = (int)Context.Position + pos, FileName = (string)Context.Location });
+                }
 
-                result.Push(item, new Position { BytePosition = (int)Context.Position, FileName = (string)Context.Location });
+                pos += item.Length + 1;
             }
         }
 

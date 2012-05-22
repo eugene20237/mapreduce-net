@@ -127,9 +127,6 @@ namespace MapReduceSamples
         public override int GetHashCode()
         {
             return To;
-            //return (From << 16) * 7 + To;
-            //return ( ((From << 5) - 1) << 5) -1 + To;
-            //return From ^ To;
         }
 
         public override bool Equals(object obj)

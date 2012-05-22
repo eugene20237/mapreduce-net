@@ -13,6 +13,7 @@ using System.Diagnostics;
 using MapReduce.NET.Output;
 using MapReduce.NET.Output.ExternalMerge;
 using MapReduce.NET.Serializer;
+using MapReduce.NET.Collections.System.IO;
 
 namespace TestProj
 {
@@ -20,40 +21,53 @@ namespace TestProj
     {
         static void Main(string[] args)
         {
-            /*
-            Mapreduce.NET.Service.ServiceTest.Test();
+            #region Remote MR test
+            //Mapreduce.NET.Service.ServiceTest.Test(); 
+            #endregion
 
-            MapReduceDriver prodrec = new MapReduceDriver("configProductRecommendSimple.json");
+            #region Simple product recommendation sample
+            //MapReduceDriver prodrec = new MapReduceDriver("configProductRecommendSimple.json");
 
-            IDictionary sessprod = prodrec.Start();
+            //IDictionary sessprod = prodrec.Start(); 
+            #endregion
 
+            #region Simple GREP sample
+            //MapReduceDriver grep = new MapReduceDriver("configGrep.json");
 
-            MapReduceDriver grep = new MapReduceDriver("configGrep.json");
+            //IDictionary grepresult = grep.Start(); 
+            #endregion
 
-            IDictionary grepresult = grep.Start();
+            #region Word count to SQLite JSON
+            //MapReduceDriver wordcount = new MapReduceDriver("configWordCountSQLiteJSONoutput.json");
 
+            //IDictionary wordcountresult = wordcount.Start(); 
+            #endregion
 
-            MapReduceDriver dwordcountInv2 = new MapReduceDriver("configInvertedIndex.json");
+            #region Inverted Index - Shakespeare
+            //MapReduceDriver dwordcountInv2 = new MapReduceDriver("configInvertedIndex.json");
 
-            dwordcountInv2.Tasks[0].Output.Location = Guid.NewGuid() + ".db3";
+            //dwordcountInv2.Tasks[0].Output.Location = Guid.NewGuid() + ".db3";
 
-            IDictionary resultInv2 = dwordcountInv2.Start();
+            //IDictionary resultInv2 = dwordcountInv2.Start(); 
+            #endregion
 
-            MapReduceDriver wordcount = new MapReduceDriver("configWordCountSQLiteJSONoutput.json");
+            #region Large product recommendation - depends on external log
+            //MapReduceDriver prodRecommDriver = new MapReduceDriver("configProductRecommendLargeLog.json");
 
-            IDictionary wordcountresult = wordcount.Start();
-            */
+            //prodRecommDriver.Start(); 
+            #endregion
 
-            MapReduceDriver dwordcountInv2 = new MapReduceDriver("configInvertedIndexSQLiteBinaryOutput.json");
+            #region Binary inverted index data - depends on external data
+            //MapReduceDriver dwordcountInv2 = new MapReduceDriver("configInvertedIndexSQLiteBinaryOutput.json");
 
-            dwordcountInv2.Tasks[0].Output.Location = "gutenberg.db3";
+            //dwordcountInv2.Tasks[0].Output.Location = "gutenberg.db3";
 
-            IDictionary resultInv2 = dwordcountInv2.Start();
+            //IDictionary resultInv2 = dwordcountInv2.Start(); 
+            #endregion
 
-            
-
-
-            //SQLiteExternalMerge.Merge(new InvertedIndexReducer(), new ProtobufSerializer(), "mout.db3", "m1bin.db3", "m2bin.db3");
+            #region External merger sample
+            //SQLiteExternalMerge.Merge(new InvertedIndexReducer(), new ProtobufSerializer(), "mout.db3", "m1bin.db3", "m2bin.db3"); 
+            #endregion
         }
     }
 }

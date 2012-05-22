@@ -7,7 +7,7 @@ using MapReduce.NET.Service;
 using System.IO;
 using System.IO.Compression;
 
-namespace Mapreduce.NET.Service
+namespace MapReduce.NET.Service
 {
     public class ServiceTest
     {

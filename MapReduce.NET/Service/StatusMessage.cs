@@ -5,7 +5,7 @@ using System.Web;
 using MapReduce.NET;
 using System.Runtime.Serialization;
 
-namespace Mapreduce.NET.Service
+namespace MapReduce.NET.Service
 {
     [DataContract]
     public enum StatusType

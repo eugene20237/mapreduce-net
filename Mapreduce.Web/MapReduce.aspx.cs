@@ -12,9 +12,9 @@ using MapReduce.NET;
 using System.Collections;
 using System.IO;
 using System.IO.Compression;
-using Mapreduce.NET.Service;
+using MapReduce.NET.Service;
 
-namespace Mapreduce.Web
+namespace MapReduce.Web
 {
     public partial class MapReduce : System.Web.UI.Page
     {
@@ -23,7 +23,6 @@ namespace Mapreduce.Web
         private const string ConfigNameKey = "ConfigName";
         private const string WorkerThreadKey = "WorkerThread";
         private const string StatusKey = "Status";
-
         private const int SleepTime = 1 * 1000; // 30 sec
         private StatusMessage status;
 

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Mapreduce.Web {
+namespace MapReduce.Web {
     
     
     public partial class SiteMaster {

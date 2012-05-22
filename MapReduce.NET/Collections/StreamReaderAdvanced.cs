@@ -41,6 +41,9 @@ namespace MapReduce.NET.Collections
             //
             int pos;
 
+            // the last buffer's end distance from the beginning of the file
+            int basepos;
+
             //
             // The buffer size that we are using
             //
@@ -211,7 +214,7 @@ namespace MapReduce.NET.Collections
             {
                 get
                 {
-                    return pos;
+                    return basepos + pos;
                 }
             }
 
@@ -365,6 +368,7 @@ namespace MapReduce.NET.Collections
             // the buffer is empty, fill it again
             private int ReadBuffer()
             {
+                basepos += pos;
                 pos = 0;
                 int cbEncoded = 0;
 

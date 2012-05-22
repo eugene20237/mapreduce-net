@@ -232,10 +232,6 @@
       <Project>{9A81A775-7225-4D78-BB5B-C85BEA452758}</Project>
       <Name>MapReduce.NET</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Mapreduce.Web\Mapreduce.Web.csproj">
-      <Project>{ED6483AF-6860-4E13-96EA-D3ECBAB31FD9}</Project>
-      <Name>Mapreduce.Web</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MapReduceSamples\MapReduceSamples.csproj">
       <Project>{DA31DD8D-A13D-4794-9B7C-CE493147421D}</Project>
       <Name>MapReduceSamples</Name>

@@ -16,11 +16,11 @@ namespace MapReduce.NET.Service
 
         [WebInvoke(Method = "GET")]
         [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IMapReduceService/Status", ReplyAction = "http://tempuri.org/IMapReduceService/StatusResponse")]
-        Mapreduce.NET.Service.StatusMessage Status();
+        MapReduce.NET.Service.StatusMessage Status();
 
         [WebInvoke(Method = "POST")]
         [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IMapReduceService/Start", ReplyAction = "http://tempuri.org/IMapReduceService/StartResponse")]
-        Mapreduce.NET.Service.StatusMessage Start(string config, System.Collections.Generic.Dictionary<string, string> parameters);
+        MapReduce.NET.Service.StatusMessage Start(string config, System.Collections.Generic.Dictionary<string, string> parameters);
 
         [WebInvoke(Method = "GET")]
         [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IMapReduceService/Abort", ReplyAction = "http://tempuri.org/IMapReduceService/AbortResponse")]
@@ -81,12 +81,12 @@ namespace MapReduce.NET.Service
         {
         }
 
-        public Mapreduce.NET.Service.StatusMessage Status()
+        public MapReduce.NET.Service.StatusMessage Status()
         {
             return base.Channel.Status();
         }
 
-        public Mapreduce.NET.Service.StatusMessage Start(string config, System.Collections.Generic.Dictionary<string, string> parameters)
+        public MapReduce.NET.Service.StatusMessage Start(string config, System.Collections.Generic.Dictionary<string, string> parameters)
         {
             return base.Channel.Start(config, parameters);
         }
